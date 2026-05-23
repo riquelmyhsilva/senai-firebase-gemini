@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Auth & Firestore Colors</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonte Premium para um visual moderno -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Área de Fundo com Transição de Cores Dinâmica -->
+  <div id="dynamic-bg" class="bg-wrapper">
+    <main class="app-card">
+      
+      <!-- 1. Tela de Login -->
+      <section id="login-section" class="card-section">
+        <header class="card-header">
+          <h2>Bem-vindo</h2>
+          <p>Faça login para carregar sua cor personalizada do Firestore.</p>
+        </header>
+
+        <form id="login-form" class="auth-form" novalidate>
+          <div class="input-group">
+            <label for="email-input">E-mail</label>
+            <input 
+              type="email" 
+              id="email-input" 
+              placeholder="exemplo@gmail.com" 
+              required 
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="input-group">
+            <label for="password-input">Senha</label>
+            <input 
+              type="password" 
+              id="password-input" 
+              placeholder="••••••••" 
+              required 
+              autocomplete="current-password"
+            >
+          </div>
+
+          <!-- Mensagem de erro amigável -->
+          <div id="error-message" class="alert alert-danger hidden" role="alert"></div>
+
+          <button type="submit" id="btn-login" class="btn btn-primary">
+            <span class="btn-text">Entrar</span>
+            <span class="spinner hidden"></span>
+          </button>
+        </form>
+      </section>
+
+      <!-- 2. Tela de Sucesso (Home) -->
+      <section id="success-section" class="card-section hidden">
+        <header class="card-header success-header">
+          <div class="success-icon-badge">✓</div>
+          <h2>Conectado com Sucesso!</h2>
+          <p>Suas preferências de cor foram carregadas com sucesso.</p>
+        </header>
+
+        <div class="success-details">
+          <div class="detail-row">
+            <span class="detail-label">Usuário Logado</span>
+            <span id="user-email" class="detail-value">---</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Valor RGB do Firestore</span>
+            <span id="rgb-value" class="detail-value-badge">rgb(---)</span>
+          </div>
+        </div>
+
+        <!-- Alertas de Erros Específicos para o Firestore (Cor / Documento ausente) -->
+        <div id="firestore-warning" class="alert alert-warning hidden" role="alert"></div>
+
+        <button type="button" id="btn-logout" class="btn btn-secondary">Sair</button>
+      </section>
+      
+    </main>
+  </div>
+
+  <!-- Carrega o módulo principal JavaScript -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
